@@ -1,0 +1,105 @@
+/**
+ * TITLE 
+ */
+h1 {
+   text-align: center;
+   border: 2px solid black;
+   margin: 10px;
+   padding: 3px;
+}
+
+/**
+ * Flex
+ */
+.header-flex {
+    display: flex;
+    margin: 10px 10px 5px 10px;
+    border: 2px solid black;
+}
+
+/**
+ * RENDERED FORM
+ */
+form[name=create_user] {
+    display: inline-block;   
+}
+
+form[name=edit_user] {
+    display: inline-block;   
+}
+
+form[name=user_panel] {
+    display: inline-block;   
+}
+
+form[name=form] {
+    display: inline-block;   
+}
+
+div.form-content {
+    width: 500px;
+    margin: 15px 10px;
+    display: inline-block;  
+}
+
+div.form-content > div {
+    display: inline-block;
+    width: 500px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    padding: 5px;   
+}
+
+div.form-content > div:last-of-type {
+    border: 1px solid black;   
+}
+
+div.form-content > div > div {
+    display: inline-block;   
+}
+
+div.form-content > div > label {
+    display: inline-block;
+    width: 125px;
+    height: 100%;
+}
+
+div.form-content > div.file-uploading > div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 14px;  
+}
+
+div.form-content > div.file-uploading > div > label {
+  padding: 4px 15px 1px 4px;
+}
+
+div.form-content > div.file-uploading > div > input[type=checkbox] {
+  margin-top: 2px;   
+}
+
+div.form-content > div.file-uploading > div.display-none {
+  display: none;
+}
+
+textarea {
+    max-width: 350px;
+    max-height: 700px; 
+}
+
+/**
+ * UL
+ */
+ul {
+    margin: 2px;   
+}
+
+ul > li {
+    margin: 7px 7px 3px 7px;   
+}
+
+ul > li:last-of-type {
+    margin: 7px 7px 7px 7px;   
+}

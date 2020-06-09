@@ -1,0 +1,40 @@
+h1 {
+    text-align: center;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 3px;
+}
+
+h4 {
+    margin: 0 0 9px 0;  
+}
+
+p {
+    margin: 0 0 2px 0;   
+}
+
+label > p:last-child {
+    margin: 0 0 8px 0;   
+}
+
+#main-info, form {
+    display: block;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 10px;  
+}
+
+div#messages {
+    display: block;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 10px;   
+}
+
+h3#messages-header {
+    margin-bottom: 10px; 
+}
+
+.flash-content {
+    padding: 4px 0 2px 0;   
+}

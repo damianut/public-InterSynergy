@@ -1,0 +1,25 @@
+/**
+ * LOGOUT
+ */
+div#logout {
+    border: 1px solid black;
+    flex: 1;
+    margin: 15px 10px 15px 10px;
+    padding: 5px; 
+}
+
+div#logout > h3 {
+    text-align: center;
+    padding: 9px;     
+}
+
+div#logout > p {
+    padding: 2px 0 2px 4px;   
+}
+
+form[action=logout] {
+    align-self: center; 
+    display: flex;
+    justify-content: center;
+    margin: 15px 10px 15px 10px;  
+}

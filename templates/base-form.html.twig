@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="css/base-form.css">
+{% endblock stylesheets %}
+
+{% block body %}
+    {% block panel_main_header %}
+    {% endblock panel_main_header %}
+    <div class="header-flex">
+        {% block instruction %}
+        {% endblock instruction %}
+        {% block exit_button %}
+        {% endblock exit_button %}
+    </div>
+    {{ form_start(form) }}
+        {% block form_id %}
+        <div class="form-content">
+        {% endblock form_id %}
+            {% block four_admin_fields %}
+            {% endblock four_admin_fields %}
+            {{ form_row(form.name) }}
+            {{ form_row(form.surname) }}
+            {{ form_row(form.PESEL) }}
+            {{ form_row(form.NIP) }}
+            {{ form_row(form.address) }}
+            {{ form_row(form.personDescription) }}
+            {{ form_row(form.interests) }}
+            {{ form_row(form.skills) }}
+            {{ form_row(form.experience) }}
+            {{ form_row(form.birthDate) }}
+            {% block cv %}
+            <div class="file-uploading">
+                {{ form_label(form.CVFilename) }}
+                {{ form_widget(form.CVFilename) }}
+                {% if not filename is empty %}
+                    <a href="{{ asset('upload/pdf/' ~ filename) }}">Obecne CV</a>
+                {% endif %}
+                {{ form_errors(form) }}
+                {{ form_errors(form.CVFilename) }}
+                {{ form_help(form.CVFilename) }}
+                {% if not filename is empty %}
+                    {{ form_row(form.retain) }}
+                {% else %}
+                    <div class="display-none">
+                        {{ form_row(form.retain) }}
+                    </div>
+                {% endif %}
+            </div>
+            {% endblock cv %}
+            {% block rating_admin %}
+            {% endblock rating_admin %}
+            {{ form_rest(form) }}
+        </div>
+    {{ form_end(form) }}
+{% endblock body %}

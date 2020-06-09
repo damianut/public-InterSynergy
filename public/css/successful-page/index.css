@@ -1,0 +1,16 @@
+/**
+ * FLASHES CONTAINER
+ */
+.flashes-container {
+  border: 1px solid black;
+  padding: 6px;
+  margin: 5px 5px 10px 5px;   
+}
+
+.flash-paragraph {
+  padding: 4px 0 0 2px;   
+}
+
+a[href=login-account] {
+  margin: 0 0 0 5px;   
+}

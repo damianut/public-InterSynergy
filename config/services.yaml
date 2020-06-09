@@ -1,0 +1,131 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    app.login.attempts: 3
+    app.email.sender: 'digers.damorz@gmail.com'
+    app.admin.email: 'damianas1999@gmail.com'
+    
+    #Register
+    app.register.email.busy: 'Użytkownik o podanym adresie e-mail posiada już konto w CV Center'
+    app.register.email.title: 'Aktywuj konto w CV Center'
+    app.register.acc.created:  'Witaj! Właśnie utworzyliśmy Twoje konto. Aby je aktywować, kliknij następujący link: '
+    app.register.acc.created.flash: 'Utworzono konto! Aby je aktywować, kliknij link wysłany e-mailem na podany przez Ciebie adres e-mail w trakcie rejestracji.'
+    app.register.confirm.email.fail: 'E-mail z linkiem aktywacyjnym nie został wysłany'
+    
+    #Activate:
+    app.activate: 'Twoje konto zostało aktywowane! Wpisz e-mail i hasło, aby się zalogować'
+    app.activate.fail: 'Procedura aktywowania nie powiodła się. Skontaktuj się z administratorem'
+    app.activate.token.404: 'Twój token aktywacyjny został już użyty albo nie został utworzony.'
+    
+    #Login
+    app.login.pwd.fail: 'Nieprawidłowe hasło. Po trzech nieudanych próbach logowania konto zostanie zablokowane.'
+    app.login.email.pwd.fail: 'Niepoprawny email lub hasło.'
+    app.login.update.fail: 'Błąd wewnętrzny. Nie zaktualizowano danych logowania.'
+    app.login.acc.banned.email: 'Konto zostało zablokowane z powodu 3 nieudanych zalogowań pod rząd. Aby je aktywować, kliknij link aktywujący wysłany na adres e-mail podany przy logowaniu.'
+    app.login.acc.banned.msg.title: 'Konto w CV Center zostało zablokowane'
+    app.login.acc.banned: 'Twoje konto zostałozablokowane z powodu 3 nieudanych zalogowań pod rząd. Aby je aktywować, kliknij następujący link: '
+    app.login.acc.disabled: 'Nie można się zalogować. Konto jest zablokowane. Wejdź w link aktywujący podany w emailu, aby je aktywować lub skontaktuj się z administratorem.'
+    app.login.10: "Konto jest już zalogowane i było używane mniej niż 10 minut temu.\nJeśli nie zostanie użyte (tj. nie zostanie odświeżona strona) w ciągu 10 minut, to będzie można się na nie tu zalogować."
+    app.login.update.success: 'Dane konta zostały zaktualizowane.'
+    
+    #Logout:
+    app.logout.success: 'Wylogowano się'
+    app.logout.non: 'Nikt nie jest zalogowany'
+    
+    #Message about internal cases
+    app.update.err: 'Błąd wewnętrzny. Nie zaktualizowano daty ostatniej aktulizacji wpisu o użytkowniku.'
+    
+    #Resetter: failure request
+    app.resetter.email.blank: 'Nie podano adresu e-mail.'
+    app.resetter.email.404: 'Brak konta o podanym e-mailu.'
+    app.resetter.token.exists: 'Operacja nieudana. E-mail z linkiem do resetowania hasła został już wysłany wcześniej.'
+    app.resetter.email.fail: 'Link do resetowania hasła nie został wysłany. Aby zmienić hasło, skontaktuj się z administratorem.'
+    #Resetter: successful request
+    app.resetter.email.title: 'Resetowanie hasła'
+    app.resetter.email.content: 'Aby zresetować hasło kliknij następujący link: '
+    app.resetter.email.sent: 'Sukces! Kliknij link wysłany w e-mailu, aby zmienić hasło.'
+    #Resetter: resetter page
+    app.resetter_404_token: 'Nieprawidłowy token do resetowania hasła.'
+    app.resetter.user.token.404: 'Brak użytkownika o podanym tokenie.'
+    app.resetter.pwd.compare.fail: 'Podane hasła nie są takie same.'
+    #Resetter: success!
+    app.resetter.success: 'Hasło zostało zmienione! Teraz możesz się zalogować; o ile wcześniej konto nie zostało zablokowane.'
+    
+    #Admin Panel:
+    #Template messages:
+    app.admin.tmpl.pwd: 'Hasło jest wymagane.'
+    app.admin.tmpl.email: 'Podany e-mail jest zajęty przez inne konto.' 
+    app.admin.tmpl.role: 'Podana rola jest nieprawidłowa.'
+    app.admin.tmpl.rate: 'Podany rating jest nieprawidłowy.'
+    #Create account:
+    app.admin.create: 'Utworzono nowe konto.'
+    app.data: 'Wszystkie dane zostały pomyślnie zapisane.'
+    app.data.fail: 'Wszystkie inne dane zostały pomyślnie zapisane.'
+    app.admin.403: 'Brak uprawnień do przeglądania tych zasobów.'
+    
+    #Other errors
+    app.other.error: 'Operacja nieudana.'
+    
+    #Files handling:
+    app.pdf.dir: '%kernel.project_dir%/public/upload/pdf'
+    app.upload.pdf.fail: 'Plik PDF nie został zapisany z powodów technicznych.'
+    app.remove.pdf: 'Usunięto CV.'
+    app.remove.pdf.fail: 'Nie udało się usunąć pliku.'
+    app.pdf.404: 'W bazie danych nie ma żadnego pliku CV. Nie ma czego usunąć.'
+    
+    #Exceptions:
+    #Exceptions namespaces:
+    app.exception.property.access: 'Symfony\Component\PropertyAccess\Exception\'
+    #Exceptions messages:
+    app.exception.pwd: 'Expected argument of type "string", "null" given at property path "password".'
+    app.exception.wordpress.row: 'Exception throwed. Creating or updating Candidate CPT was unsuccessful.'
+    
+    #MySQL DB statements:
+    app.create.guid: "CONCAT('http://192.168.0.26/wordpress/?post_type=candidate&#038;p=', get_new_id())"
+    
+    #WordPress:
+    #WP Create profile:
+    app.wp.create: 'Profil na WordPressie został utworzony.'  
+    app.wp.create.fail: "Profil na WordPressie nie został utworzony."
+    #WP Update profile:
+    app.wp.update: 'Profil na WordPressie został zaktualizowany.'  
+    app.wp.update.fail: "Profil na WordPressie nie został zaktualizowany."
+    #WP Delete profile:
+    app.wp.delete: 'Profil na WordPressie został usunięty.'  
+    app.wp.delete.fail: "Profil na WordPressie nie został usunięty."
+    #WP Emails sending:
+    app.wp.email: 'Administrator został poinformowany o tym fakcie e-mailem.'
+    app.wp.email.fail: 'W celu rozwiązania problemu skontaktuj się z administratorem.'
+        
+    #Logger:
+    app.logger.mailer.fail: 'Email do użytkownika nie został wysłany.'
+    
+    #Influence DB:
+    app.db.exec.failure: 'Wystąpił błąd w trakcie wykonywania polecenia w bazie danych `intersynergy`.'
+    
+    #Email:
+    app.mail.fail: 'E-mail nie został wysłany. Skontaktuj się z administratorem.'
+    
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones

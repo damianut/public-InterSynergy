@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Get Users Data in JSON{% endblock title %}
+
+{% block body %}
+<pre>
+.1. INSTRUKCJA POBIERANIA DANYCH OSOBOWYCH
+
+Aby pobrać dane o wszystkich kontach, należy wejść pod adres:
+'/rest?user'
+
+Aby pobrać dane o jednym koncie, należy wejść pod adres:
+'/rest?user=[id/email]'
+, gdzie [id/email] oznacza ID lub e-mail przypisany do konta.
+
+Dane o kontach/koncie zostaną dostarczone, tylko jeśli użyje się wyłącznie parametru 'user' po znaku zapytania.
+
+Jeśli konto o podanym ID lub e-mail nie zostanie znalezione; zostanie wyświetlona ta instrukcja.
+</pre>
+{% endblock body %}

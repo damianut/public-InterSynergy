@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CV Center - zmiana hasła{% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="css/resetter-page/index.css">
+{% endblock stylesheets %}
+
+{% block body %}
+{{ form_start(form) }}
+  <div class="reset-password-form">
+    <h2>Zmiana hasła</h2>
+    <div class="input-password">
+      {{ form_label(form.newPassword) }}
+      {{ form_widget(form.newPassword) }}
+    </div>
+    <div class="input-password">
+      {{ form_label(form.repeatPassword) }}
+      {{ form_widget(form.repeatPassword) }}
+    </div>
+    {{ form_row(form.submitPassword) }}
+  </div>
+  <div class="reset-password-errors">
+    <div class="error-password">
+      <h4>Informacja o nowym haśle:</h4>
+      <div class="error-password-content">
+      {% for error in form.newPassword.vars.errors %}
+        {{ error.message }}
+        <br />
+      {% endfor %}
+      </div>
+    </div>
+    <div class="error-password">
+      <h4>Informacja o powtórzonym haśle:</h4>
+      <div class="error-password-content">
+      {% for error in form.repeatPassword.vars.errors %}
+        {{ error.message }}
+        <br />
+      {% endfor %}
+      </div>
+    </div>
+    <div class="error-password">
+      <h4>Informacja o hasłach:</h4>
+      <div class="error-password-content">
+      {% for label, messages in app.flashes %}
+        {% for message in messages %}
+        <div class="flash flash-{{ label }}">
+            <p>{{ message }}</p>
+        </div>
+        {% endfor %}
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+  {{ form_rest(form) }}
+{{ form_end(form) }}
+{% endblock body %}

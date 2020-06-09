@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="css/admin-page/index.css">
+{% endblock stylesheets %}
+
+{% block body %}
+<div class="top-header">
+    <h1>Panel Administracyjny</h1>
+</div>
+
+<div class="logout-header">
+    <form action="logout" method="post">
+        <input type="submit" value="Wyloguj się">
+    </form>
+</div>
+
+<div class="flex-box">
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Email</td>
+            <td>Enabled</td>
+            <td>Failed logins</td>
+            <td>Imię</td>
+            <td>Nazwisko</td>
+        </tr>
+    {% for user in users %}
+    <tr>
+        {% for key, propertyValue in user %}
+            {% if propertyValue == false and key == 'enabled' %}
+                <td>0</td>
+            {% else %}
+                <td>{{ propertyValue }}</td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </table>
+    <div id="messages">
+        <h3 id="messages-header">Wynik operacji:</h3>
+        {% for label, messages in app.flashes %}
+        {% for message in messages %}
+        <div class="flashes flash-{{ label }}">
+            <pre>{{ message }}</pre>
+        </div>
+        {% endfor %}
+    {% endfor %}
+    </div>
+</div>
+<div>
+    <form action="edit-user" method="post">
+        <label for="edit_user_id">
+            <h4>Edytowanie danych osobowych</h4>
+            <p>
+            Aby edytować dane osobowe, wpisz numer ID osoby z  i naciśnij "EDYTUJ".<br>
+            Nastąpi wtedy przekierowanie do strony edycyjnej.
+            </p>
+        </label>
+        <input type="number" name="edit_user_id" id="edit_user_id">
+        <input type="submit" value="EDYTUJ">
+    </form>
+    <form action="delete-user" method="post">
+        <label for="delete_user_id">
+            <h4 class="blacked">Usuwanie danych osobowych</h4>
+            <p class="blacked">
+            Aby usunąć wszystkie dane osobowe, wpisz numer ID osoby i naciśnij "USUŃ".<br>
+            *Ta decyzja będzie nieodwracalna.*
+            </p>
+        </label>
+        <input type="number" name="delete_user_id" id="delete_user_id">
+        <input type="submit" value="USUŃ">
+    </form>
+    <form action="create-user" method="post">
+        <label for="create_user_submit">
+            <h4>Tworzenie konta</h4>
+            <p>
+            Aby utworzyć konto, nacisnij przycisk "UTWÓRZ".<br>
+            Nastąpi wtedy przekierowanie do panelu tworzenia konta.
+            </p>
+        </label>
+        <input type="submit" id="create_user_submit" value="UTWÓRZ">
+    </form>
+</div>
+{% endblock body %}

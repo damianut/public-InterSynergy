@@ -1,0 +1,38 @@
+{% extends 'base-form.html.twig' %}
+
+{% block title %}CV Center - Panel do wprowadzania, edycji i usuwania danych{% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="css/user-page/index.css">
+<link rel="stylesheet" href="css/instruction.css">
+{{ parent() }}
+{% endblock stylesheets %}
+
+{% block panel_main_header %}
+<h1>Panel do wprowadzania, edycji i usuwania danych</h1>
+{% endblock panel_main_header %}
+
+{% block instruction %}
+<div id="instruction">
+    <h3>Instrukcja</h3>
+    <p>W celu wprowadzenia danych, należy wypełnić puste pola lub wysłać plik.</p>
+    <p>W celu ich edycji, należy te dane zmienić.</p>
+    <p>Można usunąć wszystkie dane, oprócz e-maila i hasła.</p>
+    <p>Aby zmienić hasło, skorzystaj z formularza na stronie głównej.</p>
+    <p>W celu ich usunięcia, należy wszystkie dane i pliki z formularza usunąć.</p>
+    <p>Następnie należy nacisnąć przycisk "Zapisz" w celu aktualizacji tych danych w bazie danych.</p>
+</div>
+{% endblock instruction %}
+
+{% block exit_button %}
+<div id="logout">
+    <h3>Wylogowywanie</h3>
+    <form action="logout">
+        <input type="submit" name="logout-submit" value="Wyloguj się">
+    </form>
+</div>
+{% endblock exit_button %}
+
+{% block form_id %}
+    <div id="user_panel" class="form-content">
+{% endblock form_id %}

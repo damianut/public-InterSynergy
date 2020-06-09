@@ -1,0 +1,20 @@
+/**
+ * INSTRUCTION
+ */
+div#instruction {
+    border: 1px solid black;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 15px 10px 15px 10px;
+    padding: 5px;
+}
+
+div#instruction > h3 {
+    text-align: center;
+    padding: 9px;   
+}
+
+div#instruction > p {
+    padding: 2px 0 2px 4px;   
+}

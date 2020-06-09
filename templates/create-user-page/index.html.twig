@@ -1,0 +1,33 @@
+{% extends 'admin-extension.html.twig' %}
+
+{% block title %}Panel do tworzenia nowego konta{% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="css/instruction.css">
+{{ parent() }}
+{% endblock stylesheets %}
+
+{% block panel_main_header %}<h1>Panel do tworzenia nowego konta.</h1>{% endblock panel_main_header %}
+
+{% block instruction %}
+<div id="instruction">
+    <h3>Instrukcja</h3>
+    <p>Aby utworzyć nowe konto, należy podać e-mail, hasło i wybrać rolę.</p>
+    <p>E-mail nie może być używany przez inne konto.</p>
+    <p>ID zostanie wygenerowane automatycznie.</p>
+</div>
+{% endblock instruction %}
+
+{% block exit_button %}
+<form action="admin-panel" method="post">
+    <input type="submit" value="Panel Główny">
+</form>
+{% endblock exit_button %}
+
+{% block form_id %}
+<div id="create_user" class="form-content">
+{% endblock form_id %}
+
+{% block cv %}
+{{ form_row(form.CVFilename) }}
+{% endblock cv %}

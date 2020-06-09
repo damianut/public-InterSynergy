@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="css/successful-page/index.css">
+{% endblock stylesheets %}
+
+{% block body %}
+<div class="flashes-container">
+<p><b>Informacja z CV Center:</b></p>
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+    <div class="flash-{{ label }}">
+        <p class="flash-paragraph">{{ message|nl2br }}</p>
+    </div>   
+    {% endfor %}
+{% endfor %}
+</div>
+<a href="login-account">Powrót do Panelu</a>
+{% endblock body %}

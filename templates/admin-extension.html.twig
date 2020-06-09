@@ -1,0 +1,57 @@
+{% extends 'base-form.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="css/admin-extension.css">
+{{ parent() }}
+{% endblock stylesheets %}
+
+{% block four_admin_fields %}
+    <div>
+        {{ form_label(form.email) }}
+        {{ form_errors(form.email) }}
+        {% if not emailMsg is empty %}
+        <ul>
+            <li>{{ emailMsg }}</li>
+        </ul>
+        {% endif %}
+        {{ form_widget(form.email) }}
+        {{ form_help(form.email) }}
+    </div>
+    <div>
+        {{ form_label(form.roles) }}
+        {{ form_errors(form.roles) }}
+        {% if not rolesMsg is empty %}
+        <ul>
+            <li>{{ rolesMsg }}</li>
+        </ul>
+        {% endif %}
+        {{ form_widget(form.roles) }}
+        {{ form_help(form.roles) }}
+    </div>
+    <div>
+        {{ form_label(form.password) }}
+        {{ form_errors(form.password) }}
+        {% if not pwdMsg is empty %}
+        <ul>
+            <li>{{ pwdMsg }}</li>
+        </ul>
+        {% endif %}
+        {{ form_widget(form.password) }}
+        {{ form_help(form.password) }}
+    </div>
+    {% block enabled %}{% endblock enabled %}
+{% endblock four_admin_fields %}
+
+{% block rating_admin %}
+<div>
+    {{ form_label(form.rating) }}
+    {{ form_errors(form.rating) }}
+    {% if not ratingMsg is empty %}
+    <ul>
+        <li>{{ ratingMsg }}</li>
+    </ul>
+    {% endif %}
+    {{ form_widget(form.rating) }}
+    {{ form_help(form.rating) }}
+</div>
+{% endblock rating_admin %}

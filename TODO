@@ -1,0 +1,25 @@
+List of improvements to do in future:
+.I. Antiflooding defence.
+    
+Tasks:
+.1. W szablonie 'admin-page/index.html.twig' dodawać kolejne strony ze spisem
+podstawowych danych o użytkownikach, jeśli ich liczba będzie przekraczać 
+kolejne wielokrotności liczby 10. Na górze tabeli dodać menu nawigacyjnie
+do przełączania stron.
+.2. Ograniczyć liczbę użytkowników, których dane są pobierane w jednym
+zapytaniu w celu wyświetlenia w tabeli. Kolejne dane pobierać na żądanie.
+.3. Pewne wiadomości odnośnie błędów dotyczących konkretnych pól w formularzach
+tworzenia i edytowania danych użytkownika w panelu administratora, oraz
+edytowania danych w panelu użytkownika wyświetlam za pomocą kodu niezależnego 
+od tego, który pobiera wiadomości o błędach (niespełnieniach 'Assert') 
+z 'src/Entity/User.php'.
+Wysyłać te wiadomości do szablonów wspomnianych paneli poprzez Array, żeby
+nie dodawać kolejnych linii z nowymi zmiennymi zawierającymi wiadomości;
+będące wynikiem wykrycia możliwych do popełnienia przez admina
+lub użytkownika błędów przy wprowadzaniu i edycji danych.
+.4. Zdefiniować dzieloną logikę przy tworzeniu, edytowaniu i
+usuwania Usera.
+.5. Tak ustawić style tabeli, żeby dane nie rozszerzały komórek tabeli
+w nieskończoność.
+
+/*............................................................................*/

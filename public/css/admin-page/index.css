@@ -1,0 +1,121 @@
+/**
+ * GLOBALS
+ */
+.blacked {
+    color: black;   
+}
+
+/**
+ * Flex
+ */
+.top-header {
+    border: 2px solid black;
+    margin-bottom: 5px;
+}
+
+.logout-header {
+    justify-content: flex-end;
+    border: 2px solid black; 
+    display: flex;
+    margin-bottom: 5px;
+    padding: 5px 5px 5px 0;
+}
+
+.flex-box {
+    display: flex;   
+}
+
+/**
+ * Div with message about result of operation
+ */
+div#messages {
+    display: block;
+    padding: 14px 10px;
+    border: 1px solid black;
+    margin: 5px 0 0 10px;
+    flex: 1;
+}
+
+.flashes {
+    margin: 6px 0;
+}
+
+
+/**
+ * H1 — H7
+ */
+h1 {
+    margin: 0;
+    text-align: center;
+    flex: 4;
+}
+
+h3#messages-header {
+    margin: 3px 0 0 0; 
+}
+
+h4 {
+    margin: 5px 0 8px 0;   
+}
+
+/**
+ * FORMS
+ */
+form[action=logout] {
+    align-self: center;
+}
+
+form[action=edit-user] {
+    border: 2px solid black;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+form[action=delete-user] {
+    border: 2px solid red;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+form[action=delete-user] > label {
+    color: red;   
+}
+
+form[action=create-user] {
+    border: 2px solid black;
+    padding: 10px;
+    margin-top: 5px; 
+}
+
+form[action=create-user] > input {
+    margin: 4px 0 0 3px;
+}
+/**
+ * TABLE
+ */
+table {
+    border: 2px solid black;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-top: 5px;
+    flex: 1;
+}
+
+td {
+    border: 1px solid black;
+    padding: 3px;   
+}
+
+/**
+ * BODY
+ */
+body {
+    margin: 8px;   
+}
+
+/**
+ * OTHERS
+ */
+pre {
+    font-family: inherit;   
+}

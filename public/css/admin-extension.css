@@ -1,0 +1,7 @@
+form[action=admin-panel] {
+    align-self: center; 
+    display: flex;
+    flex: 1; 
+    justify-content: center;
+    margin: 15px 10px 15px 10px;
+}

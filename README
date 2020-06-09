@@ -1,0 +1,88 @@
+INTERSYNERGY
+
+This project is solution for tasks 1, 2 and 3 from 
+https://git.atebox.com/questanddie/is-backend-php-recruitment-1/tree/bbc24886d060921d900e702e27678687375aeb22
+
+InterSynergy is a name of software company, which employee created this tasks.
+In this project I use name 'CV Center' to describe whole system, which allows
+to maintaining candidates's accounts.
+
+To run this CV Center system, code from this repo and from 'damianut/wordpress'
+repo is needed.
+
+.1. Requirements:
+  .a. Symfony
+  .b. Composer
+  .c. MySQL server
+  .d. HTTP server
+
+.2. Installation:
+  .a. Clone damianut/InterSynergy repo.
+      This repo will be called 'main repo' later in this README.
+  .b. Download and install vendors in main repo.
+      $ cd <cloned-main-repo-dir>
+      $ composer install
+  .c. Clone following repo: https://github.com/damianut/wordpress to
+      root directory of your HTTP server. 
+      This repo will be called 'wordpress repo' later in this README.
+  .d. Run MySQL server and HTTP server if they aren't running.
+  .e. Create empty `intersynergy` database in MySQL. Then create user
+      ('wordpress'@'localhost' for example) with password and grant him all
+      privileges on `intersynergy`.*
+  .f. Import 'intersynergy.sql' file from cloned repo to your MySQL server
+      by e.g. phpMyAdmin. It's may takes a while.
+  .g. Execute following statement in `intersynergy` database,
+      to create admin account:
+  
+      INSERT INTO `user` (`id`, `email`, `roles`, `password`, `enabled`,
+      `failed_login`, `name`, `surname`, `pesel`, `nip`, `address`,
+      `person_description`, `interests`, `skills`, `experience`, `birth_date`,
+      `rating`, `cvfilename`, `registration_date`, `entry_updating_date`,
+      `login_date`, `blocked_confirmation_token`, `reset_token`, `logged_token`)
+      VALUES (NULL, 'admin@example.com', '[\"ROLE_USER\", \"ROLE_ADMIN\"]',
+      '$argon2id$v=19$m=65536,t=4,p=1$4GLWgxZ17qo6BIVk9JGt3Q$2svq7eZql+td/XGboaOljR6kXUum5o1XQx2H/qxW0X0',
+      1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+      NULL, NULL, NULL, '2020-02-26 14:44:35', '2020-02-26 14:44:35',
+      '2020-02-26 14:44:35', NULL, NULL, NULL);
+      
+  .h. Configure MySQL server version in `config/packages/doctrine.yaml`.
+  .i. Change DATABASE_URL variable in `.env` file according to your data
+      (mysql username and password, localhost and port).
+  .j. If your data provided in above variable contains reserved character(s)
+      defined in RFC 3986 see following site: 
+      https://symfony.com/doc/current/doctrine.html#configuring-the-database
+  .k. Edit 'wp-config.php' file in wordpress repo. Change line 26 and 29 with
+      name and password of your mysql account granted with all privileges to
+      `intersynergy` database.
+  .l. Configure Swiftmailer. I used Gmail for testing purpose.
+    .l.1. Allow for less secure apps in Your Gmail account.
+    .l.2. Change email and password in MAILER_URL variable in `.env` file.
+          Encode reserved characters defined in RFC 3986.
+    .l.3. Change email in `app.mail_sender` parameter in `/config/services.yaml`
+
+.3. Running and testing:
+  .a. Run Symfony Local Web Server
+      $ cd <cloned-repo-dir>
+      $ sudo symfony serve // Server default listening 8000 port
+  .b. Go to `http://localhost:<your-port>/main-page`, where '<your-port> is
+      the port that is listening by Symfony server. If you see page with title
+      'CV Center' it's mean that server works (I assume, that MySQL server is
+      running).
+      If you ran server to listening on another port; edit line 43
+      `wp-content/themes/twentynineteen-child/functions.php` in wordpress repo
+      and change '8000' with number of your port.
+  .c. Check that login to accounts works. Actually one account is created in
+      CV Center - admin account. Login to account with following email and
+      password:
+      email: admin@example.com
+      password: intersynergy
+  .d. Create new account in page 'http://localhost:8000/main-page'.Then go to 
+      'http://localhost/wordpress' to check, that instance of WordPress
+      works. Click on title 'Anonymous Candidate1' to check specific data of
+      created user.
+      
+.4. Instructions for Admin.
+  .4.2. Editing Users
+  Editing ID's of Users is removed to prevent duplicate IDs.
+
+/******************************************************************************/
