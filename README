@@ -11,26 +11,27 @@ To run this CV Center system, code from this repo and from 'damianut/wordpress'
 repo is needed.
 
 .1. Requirements:
-  .a. Symfony
+  .a. Symfony Local Web Server
   .b. Composer
   .c. MySQL server
-  .d. HTTP server
+  .d. HTTP server (another than server in point .a.)
 
 .2. Installation:
-  .a. Clone damianut/InterSynergy repo.
+  .a. Clone damianut/public-InterSynergy repo.
       This repo will be called 'main repo' later in this README.
   .b. Download and install vendors in main repo.
       $ cd <cloned-main-repo-dir>
       $ composer install
   .c. Clone following repo: https://github.com/damianut/wordpress to
-      root directory of your HTTP server. 
+      root directory of your HTTP server.
+      
       This repo will be called 'wordpress repo' later in this README.
   .d. Run MySQL server and HTTP server if they aren't running.
   .e. Create empty `intersynergy` database in MySQL. Then create user
       ('wordpress'@'localhost' for example) with password and grant him all
       privileges on `intersynergy`.*
-  .f. Import 'intersynergy.sql' file from cloned repo to your MySQL server
-      by e.g. phpMyAdmin. It's may takes a while.
+  .f. As root user import 'intersynergy.sql' file from cloned wordpress repo to
+      your MySQL server by e.g. phpMyAdmin. It's may takes a while.
   .g. Execute following statement in `intersynergy` database,
       to create admin account:
   
@@ -42,12 +43,13 @@ repo is needed.
       VALUES (NULL, 'admin@example.com', '[\"ROLE_USER\", \"ROLE_ADMIN\"]',
       '$argon2id$v=19$m=65536,t=4,p=1$4GLWgxZ17qo6BIVk9JGt3Q$2svq7eZql+td/XGboaOljR6kXUum5o1XQx2H/qxW0X0',
       1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-      NULL, NULL, NULL, '2020-02-26 14:44:35', '2020-02-26 14:44:35',
-      '2020-02-26 14:44:35', NULL, NULL, NULL);
+      NULL, NULL, NULL, '2020-06-09 14:44:35', '2020-06-09 14:44:35',
+      '2020-06-09 14:44:35', NULL, NULL, NULL);
       
   .h. Configure MySQL server version in `config/packages/doctrine.yaml`.
-  .i. Change DATABASE_URL variable in `.env` file according to your data
-      (mysql username and password, localhost and port).
+  .i. Create `.env.local` file and save there DATABASE_URL variable 
+      according to your data (mysql username and password, localhost and port).
+      Format of DATABASE_URL is described in `.env` file.
   .j. If your data provided in above variable contains reserved character(s)
       defined in RFC 3986 see following site: 
       https://symfony.com/doc/current/doctrine.html#configuring-the-database
@@ -55,8 +57,9 @@ repo is needed.
       name and password of your mysql account granted with all privileges to
       `intersynergy` database.
   .l. Configure Swiftmailer. I used Gmail for testing purpose.
-    .l.1. Allow for less secure apps in Your Gmail account.
-    .l.2. Change email and password in MAILER_URL variable in `.env` file.
+    .l.1. Allow for less secure apps in Your Gmail account. 
+    .l.2. MAILER_URL variable in `.env` file. Format of MAILER_URL is described
+          `.env` file.
           Encode reserved characters defined in RFC 3986.
     .l.3. Change email in `app.mail_sender` parameter in `/config/services.yaml`
 
@@ -84,5 +87,4 @@ repo is needed.
 .4. Instructions for Admin.
   .4.2. Editing Users
   Editing ID's of Users is removed to prevent duplicate IDs.
-
-/******************************************************************************/
+/*............................................................................*/
